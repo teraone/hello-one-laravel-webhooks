@@ -16,8 +16,8 @@ return [
    */
 
     'routes' => [
-        'publish' => true,
-        'prefix' => 'hello-one',
+        'publish' => env('HELLO_ONE_WEBHOOK_PUBLISH_ROUTES', true),
+        'prefix' => env('HELLO_ONE_WEBHOOK_ROUTE_PREFIX', 'hello-one'),
         'middleware' => ['api'],
     ],
 
@@ -39,7 +39,7 @@ return [
     | Log all requests and errors
     |
     */
-    'log_requests' => true,
-    'log_errors' => true,
+    'log_requests' => env('HELLO_ONE_WEBHOOK_LOG_REQUESTS', true),
+    'log_errors' => env('HELLO_ONE_WEBHOOK_LOG_ERRORS', true),
     'log_channel' => env('HELLO_ONE_LOGGER', config('logging.default')),
 ];

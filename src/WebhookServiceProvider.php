@@ -14,10 +14,7 @@ class WebhookServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('hello-one-webhooks.php'),
-        ]);
-        $this->mergeConfigFrom( __DIR__.'/../config/config.php' , 'hello-one-webhooks');
+        $this->mergeConfigFrom( __DIR__.'/../config/hello-one-webhooks.php' , 'hello-one-webhooks');
 
         $this->app->make(WebhookController::class, [WebhookRequest::class] );
 
@@ -35,7 +32,7 @@ class WebhookServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('hello-one-webhooks.php'),
+                __DIR__.'/../config/hello-one-webhooks.php' => config_path('hello-one-webhooks.php'),
             ], 'hello-one-webhooks');
 
         }
